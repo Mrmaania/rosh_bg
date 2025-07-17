@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rosh Image Background Remover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rosh Image Background Remover</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Remove Background</button>
+        </form>
+        {% if filename %}
+        <div class="result">
+            <h2>Result:</h2>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Processed Image">
+            <a href="{{ url_for('static', filename='uploads/' + filename) }}" download>Download Image</a>
+        </div>
+        {% endif %}
+    </div>
+    <footer>
+        <p>Created by Rosh Tech | WhatsApp: <a href="https://wa.me/923136608694">+92 313 6608694</a></p>
+    </footer>
+</body>
+</html>
